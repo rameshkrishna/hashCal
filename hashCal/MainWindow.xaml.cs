@@ -87,13 +87,7 @@ namespace hashCal
             fh.Show();
         }
 
-        private void TextMenu_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            MainWindow mw = new MainWindow();
-            mw.Show();
-
-        }
+       
 
         private void FolderMenuBar(object sender, RoutedEventArgs e)
         {

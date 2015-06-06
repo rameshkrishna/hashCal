@@ -1,7 +1,7 @@
 ﻿<Window x:Name="filewindow" x:Class="hashCal.FHWindows"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="hashCal Files" Height="550" Width="704" HorizontalAlignment="Center" WindowStyle="ThreeDBorderWindow" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        Title="hashCal" Height="550" Width="704" HorizontalAlignment="Center" WindowStyle="ThreeDBorderWindow" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid x:Name="FileSelectButton" UseLayoutRounding="False">
         <Menu Height="20" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStyle="Italic" FontFamily="Calibri" Margin="0,0,10,0">
             <Menu.Effect>
@@ -45,7 +45,7 @@
                     </MenuItem.RenderTransform>
                 </MenuItem>
                 <MenuItem x:Name="filesmenu1" Header="Files&#xA;Files&#xA;Files" Click="MenuItem_Click" Width="69"/>
-                <MenuItem Header="Folders" Width="188"/>
+                <MenuItem x:Name="foldermenu" Header="Folders" Width="188" Click="foldermenuclick"/>
                 <MenuItem Header="About" RenderTransformOrigin="0.657,0.55" Width="64"/>
             </Menu>
             <CheckBox x:Name="md5cb1" Content="MD5" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>

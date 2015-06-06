@@ -50,14 +50,15 @@ namespace hashCal
             
             hashfun hf = new hashfun();
             string hash=hf.MD5File(path);
-            //folderresultsbox.Text = folderresultsbox.Text + path + " " + hash + "\n";
-            //return hash;
+            fileresultsoutbox.Text = fileresultsoutbox.Text + path + " " + hash + "\n";
+           // return hash;
             
         }
 
         private void calcubuttonclick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("it will take some time please wait", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            
             string[] fileEntries = Directory.GetFiles(folderpath.Text);
            
             //folderresultsbox.Text = "";
@@ -71,6 +72,22 @@ namespace hashCal
             string[] subdirectoryEntries = Directory.GetDirectories(folderpath.Text);
             foreach (string subdirectory in subdirectoryEntries)
                 ProcessDirectory(subdirectory);
+
+        }
+
+        private void filemenuclick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            FHWindows fw = new FHWindows();
+            fw.Show();
+        }
+
+        private void textmenuclick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.Show();
+
         }
        
     }

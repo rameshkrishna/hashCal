@@ -1,13 +1,13 @@
 ﻿<Window x:Name="folders" x:Class="hashCal.Folders"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Folders" Height="550" Width="704" HorizontalAlignment="Center" WindowStyle="ThreeDBorderWindow" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="hashCal" Height="550" Width="704" HorizontalAlignment="Center" WindowStyle="ThreeDBorderWindow" BorderBrush="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid x:Name="foldersgrid">
         <Menu Height="20" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStyle="Italic" FontFamily="Calibri" Margin="0,0,10,0">
             <Menu.Effect>
                 <DropShadowEffect/>
             </Menu.Effect>
-            <MenuItem x:Name="TextMenu" Header="Text" Width="63" RenderTransformOrigin="0.5,0.5" ForceCursor="True">
+            <MenuItem x:Name="TextMenu" Header="Text" Width="63" RenderTransformOrigin="0.5,0.5" ForceCursor="True" Click="textmenuclick">
                 <MenuItem.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -17,7 +17,7 @@
                     </TransformGroup>
                 </MenuItem.RenderTransform>
             </MenuItem>
-            <MenuItem x:Name="filesmenu" Header="Files&#xA;Files&#xA;Files" Width="69"/>
+            <MenuItem x:Name="filesmenu" Header="Files&#xA;Files&#xA;Files" Width="69" Click="filemenuclick"/>
             <MenuItem Header="Folders" Width="188"/>
             <MenuItem Header="About" RenderTransformOrigin="0.657,0.55" Width="64"/>
         </Menu>
@@ -30,7 +30,7 @@
         <CheckBox x:Name="sha256checkboxf" Content="SHA-256" HorizontalAlignment="Left" Margin="291,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.356,0.29"/>
         <CheckBox x:Name="sha512checkboxf" Content="SHA-512" HorizontalAlignment="Left" Margin="398,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.097,0.693"/>
         <Label Content="Hashing Algo" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="86"/>
-        <DataGrid HorizontalAlignment="Left" Margin="774,168,-176,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="fileresultsoutbox" HorizontalAlignment="Left" Height="355" Margin="49,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="611"/>
 
     </Grid>
 </Window>

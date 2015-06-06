@@ -155,6 +155,14 @@ namespace hashCal
                 MessageBox.Show("Enter the File Path Properly", "hashCal", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
         }
+
+        private void foldermenuclick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Folders fw = new Folders();
+            fw.Show();
+
+        }
         
     }
     public class hashfun{
