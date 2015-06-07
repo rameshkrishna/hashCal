@@ -45,34 +45,66 @@ namespace hashCal
             foreach (string subdirectory in subdirectoryEntries)
                 ProcessDirectory(subdirectory);
         }
+        public string res;
         public void ProcessFile(string path)
         {
-            
             hashfun hf = new hashfun();
-            string hash=hf.MD5File(path);
-            fileresultsoutbox.Text = fileresultsoutbox.Text + path + " " + hash + "\n";
-           // return hash;
-            
+             string md5hash="";
+             string sha1hash="";
+             string sha256hash="";
+             string sha512hash="";
+            if (md5checkboxf.IsChecked == true)
+            {
+                md5hash = hf.MD5File(path);
+            }
+            if (sha1checkboxf.IsChecked==true)
+            {
+                sha1hash = hf.SHA1File(path);
+            }
+            if (sha256checkboxf.IsChecked == true)
+            {
+                sha256hash = hf.SHA256File(path);
+            }
+            if (sha512checkboxf.IsChecked == true)
+            {
+                sha512hash = hf.SHA512File(path);
+            }
+            path=System.IO.Path.GetFileName(path);
+            res = res + path + "," +md5hash+","+sha1hash+","+sha256hash+","+sha512hash+","+"\n";       
         }
 
-        private void calcubuttonclick(object sender, RoutedEventArgs e)
+        public void calcubuttonclick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("it will take some time please wait", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             
-            string[] fileEntries = Directory.GetFiles(folderpath.Text);
-           
-            //folderresultsbox.Text = "";
-            foreach (string fileName in fileEntries)
+            if (Directory.Exists(folderpath.Text) == true)
             {
-                //string result;
-                ProcessFile(fileName);
-                
-            }
-            // Recurse into subdirectories of this directory. 
-            string[] subdirectoryEntries = Directory.GetDirectories(folderpath.Text);
-            foreach (string subdirectory in subdirectoryEntries)
-                ProcessDirectory(subdirectory);
+                if (md5checkboxf.IsChecked == true || sha1checkboxf.IsChecked == true || sha256checkboxf.IsChecked == true || sha512checkboxf.IsChecked == true)
+                {
+                    MessageBox.Show("it will take some time please wait", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    string[] fileEntries = Directory.GetFiles(folderpath.Text);
 
+                    //folderresultsbox.Text = "";
+                    foreach (string fileName in fileEntries)
+                        ProcessFile(fileName);
+                    // Recurse into subdirectories of this directory. 
+                    string[] subdirectoryEntries = Directory.GetDirectories(folderpath.Text);
+                    foreach (string subdirectory in subdirectoryEntries)
+                        ProcessDirectory(subdirectory);
+
+                    string completeout = res;
+                    FolderOutPutWindowTable fo = new FolderOutPutWindowTable(completeout);
+                    completeout = "";
+                    fo.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Select Hash Algos", "Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Could not find the directory", "Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         private void filemenuclick(object sender, RoutedEventArgs e)

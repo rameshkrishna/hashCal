@@ -30,7 +30,6 @@
         <CheckBox x:Name="sha256checkboxf" Content="SHA-256" HorizontalAlignment="Left" Margin="291,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.356,0.29"/>
         <CheckBox x:Name="sha512checkboxf" Content="SHA-512" HorizontalAlignment="Left" Margin="398,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.097,0.693"/>
         <Label Content="Hashing Algo" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="86"/>
-        <TextBox x:Name="fileresultsoutbox" HorizontalAlignment="Left" Height="355" Margin="49,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="611"/>
 
     </Grid>
 </Window>
